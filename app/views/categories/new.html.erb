@@ -1,9 +1,16 @@
-<h1>New category</h1>
+<%= turbo_frame_tag "modal" do %>
+  <div class="modal">
+    <h1>New category</h1>
 
-<%= render "form", category: @category %>
+    <%= render "form", category: @category %>
 
-<br>
+    <br>
 
-<div>
-  <%= link_to "Back to categories", categories_path %>
-</div>
+    <div>
+    <%= link_to "Cancel", "#", data: {
+      controller: "modals",
+      action: "modals#close"
+    }, class: "cancel-button" %>
+  </div>
+  </div>
+<%end%>
