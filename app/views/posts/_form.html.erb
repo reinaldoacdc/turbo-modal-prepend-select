@@ -21,11 +21,13 @@
     <%= form.text_area :body %>
   </div>
 
-  <div>
+  <div id="myselect">
     <%= form.label :category_id, style: "display: block" %>
     <%= form.select :category_id, Category.all.collect { |category| [category.name, category.id] } %>
     <%= link_to 'New', new_category_path, data: {turbo_frame: "modal"}%>
-    </div>
+    <%= turbo_stream.replace "myselect", partial: "select_category", locals: { categories: Category.all, form: form} %>
+  </div>
+
   <div>
     <%= form.submit %>
   </div>

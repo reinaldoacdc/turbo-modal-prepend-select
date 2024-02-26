@@ -25,8 +25,15 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
+        @categories = Category.all
         format.html { redirect_to category_url(@category), notice: "Category was successfully created." }
         format.json { render :show, status: :created, location: @category }
+        format.turbo_stream do
+          render turbo_stream: [
+            #turbo_stream.update(@category, partial: 'posts/select_category', locals: {categories: @categories, form: Post.new}),
+            turbo_stream.update('modal', nil),
+          ] 
+        end      
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @category.errors, status: :unprocessable_entity }
