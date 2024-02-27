@@ -1,24 +1,10 @@
-# README
+# Cenário. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+O usuário está criando um Post, e não tem a categoria desejada criada. 
+Sem perder os dados preenchidos, ele abre um Modal para criar a categoria. 
 
-Things you may want to cover:
+### Issue 
+Após cadastrar, o turbo_stream deveria dar um append com o valor criado, mas não consigo sobrepor a tag de form usada na partial. 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Workaround
+Para poder funcionar, ao select ganhar foco, o App traz a listagem atualizada.
